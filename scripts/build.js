@@ -42,14 +42,21 @@ if (!fs.existsSync(EXT_DIR)) fs.mkdirSync(EXT_DIR, { recursive: true });
 // 3. 构建单文件油猴脚本 (dist/suno-copilot.user.js)
 const userScriptContent = `// ==UserScript==
 // @name         Suno中文通 (Suno Partner / Copilot) - 汉化与三层音乐白话讲解
-// @namespace    https://github.com/suno-partner
+// @name:en      Suno Chinese Companion - Full UI Translation & Plain-Language Music Cards
+// @namespace    https://github.com/ilovelogo/Suno%E4%B8%AD%E6%96%87%E9%80%9A
 // @version      1.6.0
 // @description  专为零基础打造的 Suno.com 伴侣：界面汉化、三层通俗音乐术语讲解、做第一首歌教程向导、适配三星平板 S-Pen 悬浮与触控、歌词语法糖一键复制。
+// @description:en  Suno.com companion for Chinese speakers: full UI localization, 3-layer plain-language music term cards, first-song guide, Samsung S-Pen & Apple Pencil hover support, one-tap prompt copy.
 // @author       Suno Partner Team
+// @homepageURL  https://github.com/ilovelogo/Suno%E4%B8%AD%E6%96%87%E9%80%9A
+// @supportURL   https://github.com/ilovelogo/Suno%E4%B8%AD%E6%96%87%E9%80%9A/issues
+// @downloadURL  https://raw.githubusercontent.com/ilovelogo/Suno%E4%B8%AD%E6%96%87%E9%80%9A/main/dist/suno-copilot.user.js
+// @updateURL    https://raw.githubusercontent.com/ilovelogo/Suno%E4%B8%AD%E6%96%87%E9%80%9A/main/dist/suno-copilot.user.js
 // @match        https://suno.com/*
 // @icon         https://suno.com/favicon.ico
 // @grant        none
 // @run-at       document-idle
+// @license      MIT
 // ==/UserScript==
 
 (function () {
