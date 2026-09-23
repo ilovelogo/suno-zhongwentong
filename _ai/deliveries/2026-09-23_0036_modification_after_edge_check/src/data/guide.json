@@ -1,0 +1,66 @@
+{
+  "title": "做第一首歌",
+  "subtitle": "给没有学过音乐的人 · 6 步做出属于你的第一首歌",
+  "steps": [
+    {
+      "step": 1,
+      "title": "第 1 步 · 先用一句中文写下想要的感觉",
+      "instruction": "先别打开那些英文。用一句平时说话的方式写下来，例如：\n夜里一个人说话，很安静\n想让人跟着唱，副歌大声一点\n有点难过，但是很温柔\n\n这句话留在你自己的备忘录里。后面每一步都用它来判断：做出来的歌像不像这句话。",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "一首歌先有气氛，再有句子。你这句中文就是整首歌的目标。后面的英文标签都是为了靠近它，不是为了把术语填满。",
+      "copy_label": null,
+      "copy_text": null,
+      "next_button_text": "我写好了，下一步"
+    },
+    {
+      "step": 2,
+      "title": "第 2 步 · 打开创作，点 Advanced，模型留在 v6",
+      "instruction": "在 Suno 页面左侧点 Create 创作，在上方三个模式里点 Advanced。\nSimple 是只丢一句给它自己写，Sounds 是做一段声音，不是一整首歌。\n模型留在 v6，这是现在常用的模型。\n如果想做纯音乐，留在 Advanced，歌词框一个字都不填。",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "选 Advanced 才能看到歌词框和风格描述框。没有这两格，AI 只能全凭瞎猜。纯音乐不需要找单独开关，只要歌词框什么都不写，做出来就没有人唱。",
+      "copy_label": null,
+      "copy_text": null,
+      "next_button_text": "我选好了，下一步"
+    },
+    {
+      "step": 3,
+      "title": "第 3 步 · 歌词先只写两种段落",
+      "instruction": "不要一次写很多段。先做两种：\n在讲事情的一段：把经过用三四句说完，唱得比较平；\n最想被人记住的一段：只写两句，这首歌里让它再出现一次。\n\n点下方按钮复制模板贴进歌词框，把中文换成你自己的词，方括号那些行留着。纯音乐跳过复制，歌词框保持空白。",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "人能记住的是重复。讲事情的地方负责交代，最响亮的那几句负责被记住。方括号是给 Suno 看的路标，中文句子写在下一行，不是唱出来的词。这就是副歌要唱两遍的原因。",
+      "copy_label": "复制歌词骨架模板",
+      "copy_text": "[Verse]\n用三四句把事情说完\n\n[Chorus]\n写最想被人记住的两句\n\n[Verse]\n再讲后面发生的一点事\n\n[Chorus]\n把上面那两句再写一遍",
+      "next_button_text": "我贴好了，下一步"
+    },
+    {
+      "step": 4,
+      "title": "第 4 步 · 风格只贴一行短英文",
+      "instruction": "按你在第 1 步写的那句中文，在下面四条里选一条整行贴进风格框。只贴一行短英文，不要把中文说明贴进风格框：\n\n安静、像在耳边说话：\nsoft intimate vocal, acoustic guitar, slow\n\n想让人跟着唱、副歌更有劲：\ncatchy pop, emotional chorus, full band\n\n夜里、有点孤独：\nlate night, mellow piano, warm bass\n\n只要乐器、不要人声：配合歌词框留空：\nacoustic instrumental, no vocals",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "这里只先分辨三件事：快慢（慢像说话，快像想跟着点头）、亮还是暗（开朗选流行，孤独选夜里钢琴）、声音离耳朵近还是远。贴一行就够了，不要堆太多互相冲突的词。",
+      "copy_label": "复制推荐风格短英文",
+      "copy_text": "soft intimate vocal, acoustic guitar, slow",
+      "next_button_text": "我贴好了，下一步"
+    },
+    {
+      "step": 5,
+      "title": "第 5 步 · 点 Create song 做歌",
+      "instruction": "点页面上的 Create song 按钮。\nSuno 一次会做两首，点数会减少。\n把两首都听完，先不要看任何评价，只问自己一句：哪一首更像我在第 1 步写的那句中文？\n留更像的那一首，另一首放着不管。这一步不要求下载。",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "AI 每次生成的旋律和唱腔都不一样。一次给两首是给你挑选的机会。第一次做歌只要挑出感觉对的一首，不用急着导出。",
+      "copy_label": null,
+      "copy_text": null,
+      "next_button_text": "我听完了，下一步"
+    },
+    {
+      "step": 6,
+      "title": "第 6 步 · 只改最别扭的一处",
+      "instruction": "听的时候只抓一个最明显的问题，不要整首重做：\n唱错发音怪：在歌曲三点菜单选 Edit 里的 Replace Section 重做那几秒；\n歌还没唱完：选 Extend 从某一秒往后接；\n开头结尾有空白杂音：选 Crop 把多余部分切掉。\n若要分轨，只用 Get Stems 里的 Auto。改完再听一遍，接近第 1 步那句中文就可以先停。",
+      "why_title": "想知道为什么，可跳过",
+      "why_content": "整首歌重新生成会完全换一个调子。用局部修改功能，可以在保留好听部分的同时，只把别扭的几秒修好。更多花样可以随时在下方词库查看。",
+      "copy_label": null,
+      "copy_text": null,
+      "next_button_text": "完成第一首教程"
+    }
+  ]
+}

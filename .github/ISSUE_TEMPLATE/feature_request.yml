@@ -1,0 +1,37 @@
+name: ✨ 功能建议 / Feature Request
+description: 建议新功能、新翻译词条或改进现有功能
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你的建议！请描述你希望看到的功能或改进。
+        Thanks for your suggestion!
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解决什么问题 / What problem does this solve?
+      placeholder: "目前遇到了什么不方便的地方？"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: 建议方案 / Proposed Solution
+      placeholder: "你希望怎么做？"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 类型 / Type
+      options:
+        - 新增翻译词条 / New translation term
+        - 新增平台支持 / New platform support
+        - UI / 交互改进 / UI & interaction improvement
+        - 文档改进 / Documentation improvement
+        - 其他 / Other

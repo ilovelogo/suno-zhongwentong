@@ -1,0 +1,23 @@
+{
+  "name": "suno-copilot",
+  "version": "1.4.0",
+  "description": "Suno中文通 (Suno Partner / Copilot) - 汉化与三层音乐白话讲解伴侣，专为小白与安卓大屏平板 S-Pen 触控设计",
+  "main": "src/core/injector.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "export-review": "node scripts/export_review.js",
+    "test": "node scripts/test_dom_behavior.js",
+    "all": "node scripts/build.js && node scripts/export_review.js && node scripts/test_dom_behavior.js"
+  },
+  "keywords": [
+    "suno",
+    "suno-ai",
+    "music-assistant",
+    "tampermonkey",
+    "chrome-extension",
+    "samsung-tablet",
+    "s-pen"
+  ],
+  "author": "Suno Partner Team",
+  "license": "MIT"
+}

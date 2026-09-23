@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Suno 音乐通 (Suno Partner)",
+  "version": "1.2.0",
+  "description": "专为零基础音乐小白与创作者打造的 Suno 全界面双语汉化与本地音乐知识库，支持三星平板 S-Pen 悬浮交互与做第一首歌向导。",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://suno.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

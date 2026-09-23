@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & debug
+*.log
+npm-debug.log*
+
+# Environment / secrets (never commit these)
+.env
+.env.*
+
+# Build maps
+*.map
+*.user.js.map
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Antigravity agent system (internal tooling only)
+.agents/

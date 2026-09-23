@@ -1,0 +1,111 @@
+{
+  "browser": "Microsoft Edge (Desktop v153.0.4234.48)",
+  "authProfileUsed": true,
+  "extensionLoaded": true,
+  "checks": {
+    "item1_buttons": {
+      "badgeCount": 0,
+      "badgeDetails": [],
+      "sampleButtons": [
+        "Resources",
+        "Log in",
+        "Log in",
+        "Join Suno for free",
+        "Open App",
+        "Advanced",
+        "Create",
+        "37K",
+        "22K",
+        "51K",
+        "57K",
+        "39K",
+        "30K",
+        "20K",
+        "43K",
+        "31K",
+        "31K",
+        "Monthly",
+        "Yearlysave 20%",
+        "Sign Up",
+        "Subscribe",
+        "Subscribe",
+        "Sign Up",
+        "Subscribe",
+        "Subscribe",
+        "Download on iPhone",
+        "Download on Android",
+        "487K",
+        "39K",
+        "157K"
+      ]
+    },
+    "item2_lyricsSafety": {
+      "safe": true,
+      "badgesInside": 0,
+      "textPreserved": true,
+      "value": "[Chorus]\nTest Live Line\nCustom"
+    },
+    "item5_drawerAndCopy": {
+      "found": true,
+      "copyValue": "[Bridge]",
+      "toastText": "",
+      "toastShown": false
+    },
+    "item3_threeTierCard": {
+      "hasEngine": false
+    },
+    "item4_zeroConsumption": {
+      "createBtnFound": true,
+      "badgesInside": 0,
+      "generationTriggered": false
+    }
+  },
+  "consoleErrors": [],
+  "dawState": {
+    "title": "Suno | AI Music Generator",
+    "currentUrl": "https://suno.com/",
+    "isLoginRedirect": true,
+    "hasFloatBall": true,
+    "badgeCount": 0,
+    "badgeDetails": [],
+    "textareaCount": 1,
+    "sampleButtons": [
+      "Resources",
+      "Log in",
+      "Log in",
+      "Join Suno for free",
+      "Open App",
+      "Advanced",
+      "Create",
+      "37K",
+      "22K",
+      "51K",
+      "57K",
+      "39K",
+      "30K",
+      "20K",
+      "43K",
+      "31K",
+      "31K",
+      "Monthly",
+      "Yearlysave 20%",
+      "Sign Up",
+      "Subscribe",
+      "Subscribe",
+      "Sign Up",
+      "Subscribe",
+      "Subscribe",
+      "Download on iPhone",
+      "Download on Android",
+      "487K",
+      "39K",
+      "157K"
+    ]
+  },
+  "allConsoleLogs": [
+    "[LOG] %c\n  ███████╗██╗   ██╗███╗   ██╗ ██████╗\n  ██╔════╝██║   ██║████╗  ██║██╔═══██╗\n  ███████╗██║   ██║██╔██╗ ██║██║   ██║\n  ╚════██║██║   ██║██║╚██╗██║██║   ██║\n  ███████║╚██████╔╝██║ ╚████║╚██████╔╝\n  ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝\n  We are hiring! Come join our amazing team!\n  https://suno.com/careers\n       color: #ff6b9d; font-weight: bold; text-shadow: 0 0 10px rgba(255, 107, 157, 0.5), 0 0 20px rgba(255, 107, 157, 0.3), 0 0 30px rgba(255, 107, 157, 0.2); font-family: \"Courier New\", monospace;",
+    "[WARNING] [GSI_LOGGER]: Your client application uses one of the Google One Tap prompt UI status methods that may stop functioning when FedCM becomes mandatory. Refer to the migration guide to update your code accordingly and opt-in to FedCM to test your changes. Learn more: https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#display_moment and https://developers.google.com/identity/gsi/web/guides/fedcm-migration?s=dc#skipped_moment",
+    "[ERROR] Invalid id passed to identify.",
+    "[WARNING] [Suno Copilot] 复制失败: {\"type\":\"object\",\"subtype\":\"error\",\"className\":\"DOMException\",\"description\":\"NotAllowedError: Failed to execute 'writeText' on 'Clipboard': Write permission denied.\",\"objectId\":\"-6817854485597624101.4.1\",\"preview\":{\"type\":\"object\",\"subtype\":\"error\",\"description\":\"NotAllowedError: Failed to execute 'writeText' on 'Clipboard': Write permission denied.\",\"overflow\":false,\"properties\":[{\"name\":\"stack\",\"type\":\"string\",\"value\":\"NotAllowedError: Failed to execute 'writeText' on 'Clipboard': Write permission denied.\"},{\"name\":\"code\",\"type\":\"number\",\"value\":\"0\"},{\"name\":\"name\",\"type\":\"string\",\"value\":\"NotAllowedError\"},{\"name\":\"message\",\"type\":\"string\",\"value\":\"Failed to execute 'writeText' on 'Clipboard': Write permission denied.\"}]}}"
+  ]
+}

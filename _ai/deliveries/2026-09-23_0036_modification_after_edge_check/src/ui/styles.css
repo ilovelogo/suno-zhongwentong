@@ -1,0 +1,718 @@
+/* ============================================================
+   Suno Copilot (Suno 音乐通) - UI Stylesheet
+   Optimized for Samsung Tablet (S-Pen Hover + Touch) & Desktop
+   ============================================================ */
+
+/* 徽章样式：挂在英文按钮与标签旁边的小问号 */
+.suno-copilot-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  min-width: 1.35rem;
+  margin-left: 0.35rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fe3c7d 0%, #ffb003 100%);
+  color: #ffffff !important;
+  font-size: 0.78rem !important;
+  font-weight: 800 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  line-height: 1 !important;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 10px rgba(254, 60, 125, 0.45);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+  vertical-align: middle;
+  z-index: 100;
+  touch-action: manipulation;
+}
+
+.suno-copilot-badge:hover,
+.suno-copilot-badge:active {
+  transform: scale(1.22);
+  box-shadow: 0 0 14px rgba(255, 176, 3, 0.85);
+}
+
+/* 徽章与中文辅助标题独立容器（禁止内部换行导致字竖排） */
+.suno-copilot-companion {
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  margin-left: 0.35rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* 汉化副标题提示（直接显示在原英文按钮旁） */
+.suno-copilot-subtext {
+  display: inline-block;
+  font-size: 0.75rem !important;
+  color: #ffb003 !important;
+  font-weight: 600 !important;
+  margin-left: 0.35rem;
+  opacity: 0.95;
+  letter-spacing: 0.02em;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap !important;
+}
+
+/* 导航与菜单汉化副标题 */
+.suno-copilot-nav-zh {
+  display: inline-block;
+  font-size: 0.72rem !important;
+  color: #ffb003 !important;
+  font-weight: 600 !important;
+  margin-left: 0.35rem;
+  opacity: 0.95;
+  letter-spacing: 0.02em;
+  user-select: none;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+/* 紧凑按钮双行排版：上英下中策略（按用户明确要求：上面英文、下面中文，彻底杜绝横向挤压与溢出） */
+.suno-copilot-stacked-btn {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  line-height: 1.15 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+.suno-copilot-nav-zh.stacked {
+  display: block !important;
+  font-size: 0.68rem !important;
+  margin-left: 0 !important;
+  margin-top: 1px !important;
+  line-height: 1.1 !important;
+  white-space: nowrap !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* 歌曲列表灰字描述中文汉化条（支持 hover 展开与复制） */
+.suno-copilot-song-desc-zh {
+  display: block;
+  font-size: 0.72rem !important;
+  color: #ffb003 !important;
+  font-weight: 500 !important;
+  opacity: 0.95;
+  margin-top: 0.2rem;
+  line-height: 1.35;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  user-select: text;
+  pointer-events: auto;
+  transition: all 0.2s ease;
+}
+
+.suno-copilot-song-desc-zh:hover {
+  white-space: normal;
+  word-break: break-word;
+  background: rgba(255, 176, 3, 0.12);
+  border-radius: 4px;
+  padding: 2px 5px;
+}
+
+
+/* 浮动卡片容器（毛玻璃现代质感，纯 fixed 视口定位） */
+#suno-copilot-card {
+  position: fixed;
+  z-index: 999999;
+  width: 23rem;
+  max-width: calc(100vw - 2rem);
+  max-height: 82vh;
+  overflow-y: auto;
+  background: rgba(18, 18, 22, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1.1rem;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.75), 0 0 30px rgba(254, 60, 125, 0.2);
+  padding: 1.1rem;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#suno-copilot-card.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+#suno-copilot-card::-webkit-scrollbar {
+  width: 4px;
+}
+#suno-copilot-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* 卡片固定图钉标记 */
+.sc-pinned-badge {
+  font-size: 0.7rem;
+  background: rgba(255, 176, 3, 0.2);
+  color: #ffb003;
+  border: 1px solid rgba(255, 176, 3, 0.35);
+  border-radius: 9999px;
+  padding: 0.1rem 0.45rem;
+  margin-left: 0.4rem;
+  font-weight: 500;
+}
+
+/* 卡片头部 */
+.sc-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.sc-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.sc-term-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sc-term-category {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(254, 60, 125, 0.2);
+  color: #fe3c7d;
+  border: 1px solid rgba(254, 60, 125, 0.35);
+}
+
+.sc-term-zh {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #ffb003;
+}
+
+.sc-close-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease;
+}
+
+.sc-close-btn:hover {
+  color: #ffffff;
+  background: rgba(254, 60, 125, 0.4);
+}
+
+/* 三层内容区 */
+.sc-section {
+  margin-bottom: 0.85rem;
+}
+
+.sc-badge-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.35rem;
+}
+
+.sc-badge-label.tier1 {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34d399;
+}
+
+.sc-badge-label.tier2 {
+  background: rgba(59, 130, 246, 0.18);
+  color: #60a5fa;
+}
+
+.sc-badge-label.tier3 {
+  background: rgba(168, 85, 247, 0.18);
+  color: #c084fc;
+}
+
+.sc-content-text {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* 第三层完整示例块 */
+.sc-tier3-example {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #bae6fd;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin: 0.35rem 0 0.5rem 0;
+}
+
+/* 界面操作项专属说明条 */
+.sc-ui-tip {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.45rem;
+  padding: 0.4rem 0.65rem;
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* 提示词标签复制块（平板点按极爽） */
+.sc-copy-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 0.55rem;
+  padding: 0.45rem 0.7rem;
+  margin-top: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sc-copy-block:hover,
+.sc-copy-block:active {
+  background: rgba(254, 60, 125, 0.15);
+  border-color: rgba(254, 60, 125, 0.6);
+  transform: translateY(-1px);
+}
+
+.sc-code-snippet {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  color: #38bdf8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sc-copy-icon {
+  font-size: 0.75rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(254, 60, 125, 0.6), rgba(255, 176, 3, 0.6));
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.35rem;
+  margin-left: 0.6rem;
+  white-space: nowrap;
+}
+
+/* 复制反馈气泡 (成功 / 失败双态) */
+.sc-toast {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 10px 28px rgba(16, 185, 129, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000000;
+}
+
+.sc-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.sc-toast.error {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 10px 28px rgba(239, 68, 68, 0.45);
+}
+
+/* 屏幕右下角常驻 🎵 浮动速查小球 */
+#suno-copilot-float-ball {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 5.5rem;
+  z-index: 99999;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #fe3c7d 0%, #ffb003 100%);
+  box-shadow: 0 6px 20px rgba(254, 60, 125, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  color: #fff;
+  font-size: 1.4rem;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+#suno-copilot-float-ball:hover,
+#suno-copilot-float-ball:active {
+  transform: scale(1.12);
+  box-shadow: 0 8px 26px rgba(255, 176, 3, 0.7);
+}
+
+/* 浮动速查抽屉 */
+#suno-copilot-drawer {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 9.5rem;
+  width: 22rem;
+  max-width: calc(100vw - 2.5rem);
+  max-height: 72vh;
+  background: rgba(18, 18, 24, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1.2rem;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 30px rgba(254, 60, 125, 0.2);
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+.sc-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.sc-drawer-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffb003;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sc-drawer-search {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  margin-bottom: 0.75rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sc-drawer-search:focus {
+  border-color: #fe3c7d;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.sc-drawer-tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  scrollbar-width: none;
+}
+
+.sc-drawer-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.sc-tab-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.sc-tab-btn.active,
+.sc-tab-btn:hover {
+  background: linear-gradient(135deg, rgba(254, 60, 125, 0.8), rgba(255, 176, 3, 0.8));
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.sc-drawer-body {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 0.25rem;
+}
+
+.sc-drawer-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sc-drawer-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.sc-category-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin: 0.6rem 0 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sc-category-title.song_structure { color: #fe3c7d; }
+.sc-category-title.vocals_performance { color: #10b981; }
+.sc-category-title.genres_and_styles { color: #38bdf8; }
+.sc-category-title.production_params { color: #f59e0b; }
+.sc-category-title.ui_core { color: #a855f7; }
+
+.sc-tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.sc-quick-tag {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.45rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.15s ease;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.sc-quick-tag:hover,
+.sc-quick-tag:active {
+  background: rgba(254, 60, 125, 0.25);
+  border-color: rgba(254, 60, 125, 0.6);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* 抽屉顶部独立教程卡片：做第一首歌 */
+.sc-tutorial-card {
+  background: linear-gradient(135deg, rgba(254, 60, 125, 0.12), rgba(255, 176, 3, 0.12));
+  border: 1px solid rgba(255, 176, 3, 0.35);
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+  margin-bottom: 0.85rem;
+  flex-shrink: 0;
+}
+
+.sc-tutorial-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+}
+
+.sc-tutorial-step-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fe3c7d, #ffb003);
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.sc-tutorial-step-dots {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.sc-tutorial-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.2s;
+}
+
+.sc-tutorial-dot.active {
+  background: #ffb003;
+  width: 14px;
+}
+
+.sc-tutorial-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+  line-height: 1.35;
+}
+
+.sc-tutorial-instruction {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+  white-space: pre-line;
+  margin-bottom: 0.55rem;
+}
+
+.sc-tutorial-why-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  color: #ffb003;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0.55rem;
+  opacity: 0.9;
+}
+
+.sc-tutorial-why-toggle:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.sc-tutorial-why-content {
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 2px solid #ffb003;
+  padding: 0.4rem 0.6rem;
+  border-radius: 0.3rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.45;
+}
+
+.sc-tutorial-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.sc-tutorial-copy-btn {
+  width: 100%;
+  background: rgba(254, 60, 125, 0.2);
+  border: 1px solid rgba(254, 60, 125, 0.5);
+  color: #ffb003;
+  padding: 0.4rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 0.2s;
+}
+
+.sc-tutorial-copy-btn:hover {
+  background: rgba(254, 60, 125, 0.35);
+  border-color: #fe3c7d;
+  color: #fff;
+}
+
+.sc-tutorial-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sc-tutorial-prev-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sc-tutorial-prev-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.sc-tutorial-next-btn {
+  flex: 1;
+  background: linear-gradient(135deg, #fe3c7d 0%, #ffb003 100%);
+  border: none;
+  color: #ffffff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  box-shadow: 0 4px 12px rgba(254, 60, 125, 0.35);
+  transition: all 0.2s;
+}
+
+.sc-tutorial-next-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(255, 176, 3, 0.5);
+}
+
+/* 响应式适配 */
+@media (max-width: 640px) {
+  #suno-copilot-card,
+  #suno-copilot-drawer {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+    max-width: none;
+  }
+}

@@ -1,0 +1,60 @@
+name: 🐛 Bug 报告 / Bug Report
+description: 报告翻译错误、功能异常或兼容性问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你提交 Bug 报告！请尽量填写完整信息，方便我们复现和修复。
+        Thanks for filing a bug report! Please fill in as much as you can.
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 平台 / Platform
+      options:
+        - Windows PC (Chrome/Edge)
+        - Windows PC (其他浏览器)
+        - Android (Kiwi Browser)
+        - Android (Firefox)
+        - Android (QQ Browser)
+        - iOS / iPadOS (Safari + Userscripts)
+        - macOS (Chrome/Edge/Brave)
+        - macOS (Safari + Userscripts)
+        - 其他 / Other
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 脚本版本 / Script Version
+      placeholder: "例如 v1.6.0（见脚本头部 @version）"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 / Bug Description
+      placeholder: "描述发生了什么，以及你期望的正确行为"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤 / Steps to Reproduce
+      placeholder: |
+        1. 打开 suno.com/...
+        2. 点击 ...
+        3. 看到 ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 截图 / 其他信息（可选）
+      placeholder: "可贴截图、控制台错误信息等"
